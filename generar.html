@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Generar incapacidad</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+
+<body>
+
+<h2>Generar incapacidad médica</h2>
+
+<label>Paciente</label>
+<input id="paciente">
+
+<label>Días</label>
+<input id="dias">
+
+<br><br>
+
+<button onclick="crear()">Generar incapacidad</button>
+
+<br><br>
+
+<div id="qr"></div>
+
+<p id="codigo"></p>
+
+<script src="script.js"></script>
+
+</body>
+</html>
