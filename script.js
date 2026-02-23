@@ -78,6 +78,6 @@ function generarQR(id){
 
  document.getElementById("qr").innerHTML=""
 
- new QRCode(document.getElementById("qr"),url)
+ new QRCode(document.getElementById("qr"), url)
 
 }
