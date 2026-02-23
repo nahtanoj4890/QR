@@ -1,37 +1,51 @@
-
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Verificación de incapacidad</title>
+<title>Verificación</title>
 </head>
+
 <body>
 
-<h2>Verificación de incapacidad médica</h2>
-<div id="resultado">Verificando certificado...</div>
+<h2>Validación de incapacidad</h2>
+
+<div id="resultado">Consultando base de datos...</div>
 
 <script>
-const params=new URLSearchParams(window.location.search);
-const id=params.get("id");
 
-fetch("data/certificados.json")
+const API = "AQUI_TU_API"
+
+const params = new URLSearchParams(window.location.search)
+
+const id = params.get("id")
+
+fetch(API + "/search?ID=" + id)
+
 .then(r=>r.json())
+
 .then(data=>{
 
- const cert=data.certificados.find(c=>c.id===id);
+ if(data.length > 0){
 
- if(cert){
-  document.getElementById("resultado").innerHTML=
-  "✅ CERTIFICADO VÁLIDO<br><br>"+
-  "Paciente: "+cert.paciente+
-  "<br>ID: "+cert.id+
-  "<br>Fecha: "+cert.fecha+
-  "<br>Días: "+cert.dias;
+  const c = data[0]
+
+  document.getElementById("resultado").innerHTML =
+  "CERTIFICADO VALIDO<br><br>"+
+  "Paciente: "+c.PACIENTE+
+  "<br>Fecha: "+c.FECHA+
+  "<br>Días: "+c.DIAS+
+  "<br>Médico: "+c.MEDICO+
+  "<br>Registro: "+c.REGISTRO
+
  }else{
-  document.getElementById("resultado").innerHTML="❌ CERTIFICADO NO REGISTRADO";
+
+  document.getElementById("resultado").innerHTML =
+  "CERTIFICADO NO REGISTRADO"
+
  }
 
-});
+})
+
 </script>
 
 </body>
