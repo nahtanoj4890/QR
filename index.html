@@ -1,10 +1,27 @@
-QR
-│
-├── index.html
-├── verificar.html
-│
-├── data
-│   └── certificados.json
-│
-└── js
-    └── generarCertificado.js
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generar incapacidad</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+
+<h2>Generar certificado</h2>
+
+<label>Paciente</label>
+<input id="paciente" placeholder="Nombre paciente">
+
+<br><br>
+
+<button onclick="generarQRSeguro()">Generar QR</button>
+
+<br><br>
+
+<canvas id="qr"></canvas>
+
+<script src="js/generarCertificado.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Verificación de incapacidad</title>
+</head>
+<body>
+
+<h2>Verificación de incapacidad médica</h2>
+<div id="resultado">Verificando certificado...</div>
+
+<script>
+const params=new URLSearchParams(window.location.search);
+const id=params.get("id");
+
+fetch("data/certificados.json")
+.then(r=>r.json())
+.then(data=>{
+
+ const cert=data.certificados.find(c=>c.id===id);
+
+ if(cert){
+  document.getElementById("resultado").innerHTML=
+  "✅ CERTIFICADO VÁLIDO<br><br>"+
+  "Paciente: "+cert.paciente+
+  "<br>ID: "+cert.id+
+  "<br>Fecha: "+cert.fecha+
+  "<br>Días: "+cert.dias;
+ }else{
+  document.getElementById("resultado").innerHTML="❌ CERTIFICADO NO REGISTRADO";
+ }
+
+});
+</script>
+
+</body>
+</html>
