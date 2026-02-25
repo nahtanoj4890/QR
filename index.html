@@ -2,33 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Generar incapacidad</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>Generar incapacidad médica</title>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
 <style>
-body{font-family:Arial;margin:40px}
-input,button{padding:8px;margin:6px 0}
-#qr{margin-top:20px}
+body{
+font-family:Arial;
+padding:40px;
+}
+
+input{
+padding:8px;
+margin:5px 0;
+width:250px;
+}
+
+button{
+padding:10px 20px;
+cursor:pointer;
+}
+
+#qrcode{
+margin-top:20px;
+}
 </style>
+
 </head>
+
 <body>
 
-<h2>Generador de Incapacidad</h2>
+<h2>Generar Incapacidad Médica</h2>
 
-<label>Paciente</label><br>
-<input id="paciente"><br>
+Paciente<br>
+<input id="paciente">
 
-<label>Días</label><br>
-<input id="dias" type="number"><br>
+<br><br>
 
-<label>Fecha</label><br>
-<input id="fecha" type="date"><br>
+Días de incapacidad<br>
+<input id="dias" type="number">
+
+<br><br>
 
 <button onclick="generar()">Generar QR</button>
 
-<div id="link"></div>
-<div id="qr"></div>
+<h3>ID: <span id="id"></span></h3>
 
-<script src="script.js"></script>
+<div id="qrcode"></div>
+
+<script src="generar.js"></script>
 
 </body>
 </html>
