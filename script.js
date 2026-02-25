@@ -74,7 +74,7 @@ async function crear(){
 
 function generarQR(id){
 
- const url = "https://nahtanoj4890.github.io/QR/verificar.html?id="+id
+ const url = `https://nahtanoj4890.github.io/QR/verificar.html?id=${id}&paciente=${paciente}&dias=${dias}&fecha=${fecha}`
 
  document.getElementById("qr").innerHTML=""
 
