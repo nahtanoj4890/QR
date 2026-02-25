@@ -1,52 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Generar incapacidad</title>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
+<style>
+body{font-family:Arial;margin:40px}
+input,button{padding:8px;margin:6px 0}
+#qr{margin-top:20px}
+</style>
 </head>
-
 <body>
 
-<h2>Generar incapacidad médica</h2>
+<h2>Generador de Incapacidad</h2>
 
-<input id="paciente" placeholder="Paciente">
+<label>Paciente</label><br>
+<input id="paciente"><br>
 
-<br><br>
+<label>Días</label><br>
+<input id="dias" type="number"><br>
 
-<input id="dias" placeholder="Días">
+<label>Fecha</label><br>
+<input id="fecha" type="date"><br>
 
-<br><br>
+<button onclick="generar()">Generar QR</button>
 
-<button id="btn">Generar incapacidad</button>
-
-<br><br>
-
+<div id="link"></div>
 <div id="qr"></div>
 
-<h3 id="codigo"></h3>
-
-<script src="./script.js"></script>
-
-<script>
-
-const params = new URLSearchParams(window.location.search)
-
-document.body.innerHTML = `
-<h1>Validación de incapacidad</h1>
-<h2>CERTIFICADO VALIDO</h2>
-
-Paciente: ${params.get("paciente")} <br>
-Fecha: ${params.get("fecha")} <br>
-Días: ${params.get("dias")} <br>
-Médico: Dr Jonathan Gomez <br>
-Registro: ${params.get("id")}
-`
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
