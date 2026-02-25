@@ -2,35 +2,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Validación</title>
+<title>Verificación de incapacidad</title>
+
 <style>
-body{font-family:Arial;margin:40px}
-.box{padding:20px;border:1px solid #ccc;border-radius:10px;width:420px}
-.ok{color:green;font-weight:bold}
+body{
+font-family:Arial;
+padding:40px;
+}
 </style>
+
 </head>
+
 <body>
 
-<div class="box">
 <h2>Validación de incapacidad</h2>
-<div class="ok">CERTIFICADO VALIDO</div>
-<br>
 
-Paciente: <span id="paciente"></span><br>
-Fecha: <span id="fecha"></span><br>
-Días: <span id="dias"></span><br>
-Médico: Dr Jonathan Gomez<br>
-Registro: <span id="id"></span>
+<h3 id="estado">Verificando...</h3>
 
-</div>
+<p>Paciente: <span id="paciente"></span></p>
+<p>Fecha: <span id="fecha"></span></p>
+<p>Días: <span id="dias"></span></p>
+<p>Médico: <span id="medico"></span></p>
+<p>Registro: <span id="registro"></span></p>
 
-<script>
-const p=new URLSearchParams(window.location.search)
-document.getElementById("paciente").textContent=p.get("paciente")
-document.getElementById("fecha").textContent=p.get("fecha")
-document.getElementById("dias").textContent=p.get("dias")
-document.getElementById("id").textContent=p.get("id")
-</script>
+<script src="verificar.js"></script>
 
 </body>
 </html>
