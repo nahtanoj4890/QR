@@ -33,7 +33,18 @@
 
 <script>
 
-document.getElementById("btn").addEventListener("click", crear)
+const params = new URLSearchParams(window.location.search)
+
+document.body.innerHTML = `
+<h1>Validación de incapacidad</h1>
+<h2>CERTIFICADO VALIDO</h2>
+
+Paciente: ${params.get("paciente")} <br>
+Fecha: ${params.get("fecha")} <br>
+Días: ${params.get("dias")} <br>
+Médico: Dr Jonathan Gomez <br>
+Registro: ${params.get("id")}
+`
 
 </script>
 
