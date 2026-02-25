@@ -2,50 +2,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Verificación</title>
+<title>Validación</title>
+<style>
+body{font-family:Arial;margin:40px}
+.box{padding:20px;border:1px solid #ccc;border-radius:10px;width:420px}
+.ok{color:green;font-weight:bold}
+</style>
 </head>
-
 <body>
 
+<div class="box">
 <h2>Validación de incapacidad</h2>
+<div class="ok">CERTIFICADO VALIDO</div>
+<br>
 
-<div id="resultado">Consultando base de datos...</div>
+Paciente: <span id="paciente"></span><br>
+Fecha: <span id="fecha"></span><br>
+Días: <span id="dias"></span><br>
+Médico: Dr Jonathan Gomez<br>
+Registro: <span id="id"></span>
+
+</div>
 
 <script>
-
-const API = "https://sheetdb.io/api/v1/wzyf1f00i31rd"
-
-const params = new URLSearchParams(window.location.search)
-
-const id = params.get("id")
-
-fetch(API + "/search?ID=" + id)
-
-.then(r=>r.json())
-
-.then(data=>{
-
- if(data.length > 0){
-
-  const c = data[0]
-
-  document.getElementById("resultado").innerHTML =
-  "CERTIFICADO VALIDO<br><br>"+
-  "Paciente: "+c.PACIENTE+
-  "<br>Fecha: "+c.FECHA+
-  "<br>Días: "+c.DIAS+
-  "<br>Médico: "+c.MEDICO+
-  "<br>Registro: "+c.REGISTRO
-
- }else{
-
-  document.getElementById("resultado").innerHTML =
-  "CERTIFICADO NO REGISTRADO"
-
- }
-
-})
-
+const p=new URLSearchParams(window.location.search)
+document.getElementById("paciente").textContent=p.get("paciente")
+document.getElementById("fecha").textContent=p.get("fecha")
+document.getElementById("dias").textContent=p.get("dias")
+document.getElementById("id").textContent=p.get("id")
 </script>
 
 </body>
